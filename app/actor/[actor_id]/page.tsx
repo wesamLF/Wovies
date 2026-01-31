@@ -3,7 +3,7 @@ import KnownForMovies from '@/app/components/KnownForMovies';
 import type { ActorDetails } from '@/app/types/actors';
 
 const page = async ({ params }: { params: { actor_id: string } }) => {
-  const { actor_id } = params;
+  const { actor_id } = await params;
 
   // Fetch actor data with ISR
   const res = await fetch(
