@@ -6,7 +6,7 @@ const WINDOW = 60 * 1000
 
 const ipMap = new Map<string, { count: number; time: number }>()
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const ip =
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ??
     req.headers.get('x-real-ip') ??
