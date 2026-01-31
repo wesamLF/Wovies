@@ -11,9 +11,9 @@ const page = async ({ searchParams }: { searchParams: { page?: string } }) => {
     const currentPage = params.page ?? "1";
 
 
-    const res = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${currentPage}`,   {
-            next: { revalidate: 86400 }, // cache for 24 hours
-        })
+    const res = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${currentPage}`, {
+        next: { revalidate: 86400 }, // cache for 24 hours
+    })
     if (!res.ok) {
         throw new Error("Failed to fetch movie");
     }
@@ -37,7 +37,7 @@ const page = async ({ searchParams }: { searchParams: { page?: string } }) => {
             </GridContainer>
 
             <div className=" my-10 flex justify-center ">
-                 {total_pages !== 1 &&<Pagination total_pages={total_pages} currentPage={currentPage} toPage={'/actors/popular?page='} />}
+                {total_pages !== 1 && <Pagination total_pages={total_pages} currentPage={currentPage} toPage={'/actors/popular?page='} />}
 
             </div>
 

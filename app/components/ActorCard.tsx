@@ -15,7 +15,7 @@ const ActorCard = ({ ActorData }: { ActorData: Actor }) => {
     return (
 
 
-        <Link href={`/actor/${ActorData?.id ?? ""}`} className=" block relative shadow-sm  hover:scale-[105%] hover:rotate-1 transitidon duration-300  rounded-2xl overflow-hidden">
+        <Link prefetch={false}  href={`/actor/${ActorData?.id ?? ""}`} className=" block relative shadow-sm  hover:scale-[105%] hover:rotate-1 transitidon duration-300  rounded-2xl overflow-hidden">
 
             <figure className='w-full aspect-2/3 '>
                 <img

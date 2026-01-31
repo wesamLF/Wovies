@@ -49,10 +49,10 @@ const Pagination = ({ total_pages, currentPage, toPage }: { total_pages: number,
 
                 {steps.map((step) => (
                     step == currentPageNumber
-                        ? <Link key={step} href={`${toPage}${step.toString()}`}>
+                        ? <Link prefetch={false}   key={step} href={`${toPage}${step.toString()}`}>
                             <button className="join-item btn btn-lg btn-active">{currentPageNumber}</button>
                         </Link>
-                        : <Link key={step} href={`${toPage}${step.toString()}`}>
+                        : <Link prefetch={false}   key={step} href={`${toPage}${step.toString()}`}>
                             <button className="join-item btn btn-lg">{step}</button>
                         </Link>
 

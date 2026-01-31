@@ -1,7 +1,6 @@
 import type { MovieDetails } from '../types/movie'
 import TrailerModal from './TrailerModal'
 import WatchProviders from './WatchProviders'
-import RatingProviders from './RatingProviders'
 import AddToFavBtn from './AddToFavBtn'
 
 const MovieHero = ({ movie }: { movie: MovieDetails }) => {
@@ -72,10 +71,7 @@ const MovieHero = ({ movie }: { movie: MovieDetails }) => {
                                 <span className="">Country : {movie?.production_countries[0]?.name ? movie.production_countries[0].name : "unknown"}</span>
                                 <span className="">Language : {movie?.original_language ? movie?.original_language : "unknown"}</span>
                             </div>
-                            <div className="">
-                                {(movie?.imdb_id != "" && movie?.imdb_id != undefined) && <RatingProviders imdb_id={movie.imdb_id} movieName={movie?.title ?? ""} />
-                                }
-                            </div>
+                            
                         </div>
                     </div>
 

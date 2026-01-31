@@ -10,7 +10,7 @@ const MovieCard = ({ movieData }: { movieData: Movie }) => {
   const genres = getGenreNames(movieData.genre_ids);
 
   return (
-    <Link href={`/movie/${movieData.id}`} prefetch={false} className="block relative bg-base-100 shadow-sm group rounded-2xl overflow-hidden">
+    <Link  href={`/movie/${movieData.id}`} prefetch={false} className="block relative bg-base-100 shadow-sm group rounded-2xl overflow-hidden">
       <figure className="w-full aspect-2/3">
         <img src={imgSrc} alt={movieData.title} className="w-full h-full object-cover" />
         <div className="absolute inset-0 opacity-0 bg-linear-to-t from-black/90 via-black/60 to-primary/40 group-hover:opacity-100 transition duration-300"></div>
