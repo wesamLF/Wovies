@@ -14,9 +14,9 @@ const page = async ({ searchParams }: { searchParams: { page?: string } }) => {
 
 
 
-    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&sort_by=release_date.desc&primary_release_date.lte=2025-12-12&page=${currentPage}`, {
-        cache: "no-store",
-    }
+    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.TMDB_API_KEY}&sort_by=release_date.desc&primary_release_date.lte=2025-12-12&page=${currentPage}`,   {
+            next: { revalidate: 86400 }, // cache for 24 hours
+        }
     );
     if (!res.ok) {
         throw new Error("Failed to fetch movie");

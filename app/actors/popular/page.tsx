@@ -11,7 +11,9 @@ const page = async ({ searchParams }: { searchParams: { page?: string } }) => {
     const currentPage = params.page ?? "1";
 
 
-    const res = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${currentPage}`, { cache: "no-store" })
+    const res = await fetch(`https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_API_KEY}&language=en-US&page=${currentPage}`,   {
+            next: { revalidate: 86400 }, // cache for 24 hours
+        })
     if (!res.ok) {
         throw new Error("Failed to fetch movie");
     }

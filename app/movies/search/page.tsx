@@ -25,9 +25,9 @@ const searchPage = async ({ searchParams }: { searchParams: { query?: string, pa
     const url = getMoviesTMDB_url(query, currentPage, genreId)
 
 
-    const res = await fetch(url, {
-        cache: "no-store",
-    }
+    const res = await fetch(url,   {
+            next: { revalidate: 86400 }, // cache for 24 hours
+        }
     );
     if (!res.ok) {
         throw new Error("Failed to fetch movie");

@@ -9,9 +9,9 @@ const page = async ({ params }: { params: { movie_id: string } }) => {
 
     const { movie_id } = await params
 
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.TMDB_API_KEY}&append_to_response=credits,videos,images,similar&language=en-US`, {
-        cache: "no-store"
-    }
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.TMDB_API_KEY}&append_to_response=credits,videos,images,similar&language=en-US`,   {
+            next: { revalidate: 86400 }, // cache for 24 hours
+        }
     )
     if (!res.ok) {
         throw new Error("Failed to fetch movie")

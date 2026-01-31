@@ -24,9 +24,9 @@ const searchPage = async ({ searchParams }: { searchParams: { query?: string, pa
     const url = getActorsTMDB_url(query, currentPage)
     console.log(url)
 
-    const res = await fetch(url, {
-        cache: "no-store",
-    }
+    const res = await fetch(url,   {
+            next: { revalidate: 86400 }, // cache for 24 hours
+        }
     );
     if (!res.ok) {
         throw new Error("Failed to fetch movie");
