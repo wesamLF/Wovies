@@ -9,7 +9,7 @@ const page = async ({ params }: { params: { actor_id: string } }) => {
   const res = await fetch(
     `https://api.themoviedb.org/3/person/${actor_id}?api_key=${process.env.TMDB_API_KEY}&language=en-US&append_to_response=combined_credits`,
     {
-      next: { revalidate: 86400 } // 24h cache
+    cache: 'force-cache'
     }
   );
 
