@@ -45,5 +45,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/movie/:path*'],
+  matcher: '/:path*',
 }
